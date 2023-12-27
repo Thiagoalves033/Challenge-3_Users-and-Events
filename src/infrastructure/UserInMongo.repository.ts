@@ -13,4 +13,8 @@ export default class UserInMongoRepository implements IUserRepository {
   async findById(id: string): Promise<User | null> {
     return await UserModel.findById(id);
   }
+
+  async findByEmail(email: string): Promise<User | null> {
+    return await UserModel.findOne({ email: email });
+  }
 }

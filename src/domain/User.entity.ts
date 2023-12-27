@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 export type UserProps = {
   firstName: string;
   lastName: string;
@@ -6,10 +8,10 @@ export type UserProps = {
   country: string;
   email: string;
   password: string;
-  confirmPassword: string;
 };
 
 export default class User {
+  id: string;
   firstName: string;
   lastName: string;
   birthDate: string;
@@ -17,9 +19,13 @@ export default class User {
   country: string;
   email: string;
   password: string;
-  confirmPassword: string;
 
-  constructor(user: UserProps) {
+  constructor(user: UserProps, id?: string) {
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = crypto.randomUUID();
+    }
     this.firstName = user.firstName;
     this.lastName = user.lastName;
     this.birthDate = user.birthDate;
@@ -27,6 +33,5 @@ export default class User {
     this.country = user.country;
     this.email = user.email;
     this.password = user.password;
-    this.confirmPassword = user.confirmPassword;
   }
 }

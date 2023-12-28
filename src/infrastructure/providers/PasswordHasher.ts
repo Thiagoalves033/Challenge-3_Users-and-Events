@@ -1,4 +1,4 @@
-import IPasswordEncrypter from './PasswordEncrypter.port';
+import IPasswordEncrypter from '../../core/ports/interfaces/PasswordEncrypter.port';
 import { hash, genSalt, compare } from 'bcrypt';
 
 export default class PasswordHasher implements IPasswordEncrypter {

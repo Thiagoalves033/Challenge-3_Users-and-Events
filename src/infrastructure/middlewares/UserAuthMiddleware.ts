@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import JWTProvider from '../application/JwtTokenProvider';
-import IUserRepository from './User.repository';
+import JWTProvider from '../providers/JwtTokenProvider';
+import IUserRepository from '../../core/ports/repositories/User.repository';
 
 type TokenPayload = {
   firstName: string;

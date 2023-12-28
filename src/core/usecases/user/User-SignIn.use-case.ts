@@ -1,7 +1,7 @@
-import IUserRepository from '../../infrastructure/User.repository';
-import IPasswordEncrypter from '../PasswordEncrypter.port';
-import ITokenProvider from '../TokenProvider';
-import UseCase from '../UseCase';
+import IPasswordEncrypter from '../../ports/interfaces/PasswordEncrypter.port';
+import ITokenProvider from '../../ports/interfaces/TokenProvider';
+import UseCase from '../../ports/interfaces/UseCase';
+import IUserRepository from '../../ports/repositories/User.repository';
 
 type SignInInput = {
   email: string;

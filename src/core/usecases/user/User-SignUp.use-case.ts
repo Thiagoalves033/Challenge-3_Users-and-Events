@@ -1,4 +1,4 @@
-import User from '../../domain/User.entity';
+import User from '../../core/entities/User.entity';
 import IUserRepository from '../../infrastructure/User.repository';
 import IPasswordEncrypter from '../PasswordEncrypter.port';
 import UseCase from '../UseCase';

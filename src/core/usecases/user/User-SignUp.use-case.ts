@@ -1,7 +1,7 @@
-import User from '../../core/entities/User.entity';
-import IUserRepository from '../../infrastructure/User.repository';
-import IPasswordEncrypter from '../PasswordEncrypter.port';
-import UseCase from '../UseCase';
+import User from '../../entities/User.entity';
+import IUserRepository from '../../ports/repositories/User.repository';
+import IPasswordEncrypter from '../../ports/interfaces/PasswordEncrypter.port';
+import UseCase from '../../ports/interfaces/UseCase';
 
 export default class UserSignUp implements UseCase<User, void> {
   constructor(

@@ -1,4 +1,4 @@
-import User, { UserProps } from '../src/domain/User.entity';
+import User, { UserProps } from '../src/core/entities/User.entity';
 
 describe('User entity', () => {
   it('Should have the correct properties for a user', () => {
@@ -24,7 +24,7 @@ describe('User entity', () => {
     expect(user).toHaveProperty('password', 'password');
   });
 
-  it('Should have specified id', () => {
+  it('Should have the specified id', () => {
     const userInput: UserProps = {
       firstName: 'first name',
       lastName: 'last name',

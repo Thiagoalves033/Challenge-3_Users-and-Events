@@ -1,26 +1,18 @@
 import UseCase from '../../ports/interfaces/UseCase';
 import IEventRepository from '../../ports/repositories/Event.repository';
 
-type findAllOutput = {
+type FindAllOutput = {
   id: string;
   description: string;
   dayOfWeek: string;
   userId: string;
 };
-
-type QueryObject = {
-  filter?: any;
-  sort?: any;
-  limit?: number;
-  offset?: number;
-};
-
-export default class FindAllEvents implements UseCase<QueryObject, findAllOutput[]> {
+export default class FindAllEvents implements UseCase<object, FindAllOutput[]> {
   constructor(private EventRepo: IEventRepository) {}
 
-  async execute(options: QueryObject): Promise<findAllOutput[]> {
+  async execute(options: object): Promise<FindAllOutput[]> {
     const events = await this.EventRepo.findAll(options);
-    const output: findAllOutput[] = [];
+    const output: FindAllOutput[] = [];
 
     for (const event of events) {
       output.push({

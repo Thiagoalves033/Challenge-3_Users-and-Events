@@ -44,6 +44,7 @@ export default class EventInMongoRepository implements IEventRepository {
     return docs.map((doc) => {
       const event = new Event(doc);
       event.id = doc._id.toString();
+      event.userId = doc.userId.toString();
       return event;
     });
   }
@@ -65,6 +66,7 @@ export default class EventInMongoRepository implements IEventRepository {
     return docs.map((doc) => {
       const event = new Event(doc);
       event.id = doc._id.toString();
+      event.userId = doc.userId.toString();
       return event;
     });
   }

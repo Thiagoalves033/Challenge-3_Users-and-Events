@@ -52,8 +52,21 @@ export default class EventInMongoRepository implements IEventRepository {
     return await EventModel.findById(id);
   }
 
-  async deleteMany(): Promise<void> {
-    await EventModel.deleteMany();
+  async deleteMany(options: QueryObject): Promise<Event[]> {
+    const { day } = options;
+
+    const filter: FilterList = {};
+    if (day) filter.dayOfWeek = { $regex: day as string, $options: 'i' };
+
+    const docs = await EventModel.find(filter).lean();
+
+    await EventModel.deleteMany(filter);
+
+    return docs.map((doc) => {
+      const event = new Event(doc);
+      event.id = doc._id.toString();
+      return event;
+    });
   }
 
   async deleteById(id: string): Promise<void> {

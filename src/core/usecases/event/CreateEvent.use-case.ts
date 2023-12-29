@@ -5,6 +5,7 @@ import IEventRepository from '../../ports/repositories/Event.repository';
 type CreateInput = {
   description: string;
   dayOfWeek: string;
+  userId: string;
 };
 
 type CreateOutput = {
@@ -19,7 +20,7 @@ export default class CreateEvent implements UseCase<CreateInput, CreateOutput> {
 
   async execute(input: CreateInput): Promise<CreateOutput> {
     const event = new Event(input);
-    event.setUserId('1');
+    event.setUserId(input.userId);
     await this.EventRepo.insert(event);
 
     const savedEvent = await this.EventRepo.findById(event.id);

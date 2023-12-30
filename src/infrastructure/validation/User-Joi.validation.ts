@@ -13,7 +13,8 @@ export const UserSignUpValidation = Joi.object({
   }),
 
   birthDate: DateJoi.date().format('YYYY-MM-DD').greater('1900-01-01').messages({
-    'date.base': `The birthDate provided, '{#value}', is not valid.`
+    'date.format': `The birthDate format provided, '{#value}', is not valid. Please use YYYY-MM-DD.`,
+    'date.greater': `The birthDate provided must be more recent than 1900-01-01.`
   }),
 
   city: Joi.string().trim(true).messages({
@@ -32,8 +33,9 @@ export const UserSignUpValidation = Joi.object({
     'string.base': `The password provided, '{#value}', is not valid.`
   }),
 
-  confirmPassword: Joi.any().valid(Joi.ref('password')).messages({
-    'any.only': 'The passwords provided do not match.'
+  confirmPassword: Joi.any().valid(Joi.ref('password')).required().messages({
+    'any.only': 'The passwords provided do not match.',
+    'any.required': 'The confirmPassword property was not provided'
   })
 })
   .unknown(false)

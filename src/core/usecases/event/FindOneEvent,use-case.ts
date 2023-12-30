@@ -1,3 +1,4 @@
+import EventNotFoundError from '../../errors/EventNotFound.error';
 import UseCase from '../../ports/interfaces/UseCase';
 import IEventRepository from '../../ports/repositories/Event.repository';
 
@@ -14,7 +15,7 @@ export default class FindOneEvent implements UseCase<string, FindOneOutput> {
   async execute(eventId: string): Promise<FindOneOutput> {
     const event = await this.EventRepo.findById(eventId);
 
-    if (!event) throw new Error('Could not find event');
+    if (!event) throw new EventNotFoundError();
 
     const output: FindOneOutput = {
       id: event.id,

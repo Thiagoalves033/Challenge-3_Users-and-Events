@@ -1,6 +1,7 @@
 import UseCase from '../../ports/interfaces/UseCase';
 import Event from '../../entities/Event.entity';
 import IEventRepository from '../../ports/repositories/Event.repository';
+import EventNotSavedError from '../../errors/EventNotSaved.error';
 
 type CreateInput = {
   description: string;
@@ -24,7 +25,7 @@ export default class CreateEvent implements UseCase<CreateInput, CreateOutput> {
     await this.EventRepo.insert(event);
 
     const savedEvent = await this.EventRepo.findById(event.id);
-    if (!savedEvent) throw new Error('Could not save event');
+    if (!savedEvent) throw new EventNotSavedError();
 
     return {
       id: savedEvent.id,

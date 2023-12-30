@@ -3,6 +3,6 @@ import CustomAPIError from './CustomError';
 
 export default class InternalServerError extends CustomAPIError {
   constructor(message: string) {
-    super(message, StatusCodes.INTERNAL_SERVER_ERROR);
+    super(message, 'Internal Server Error', StatusCodes.INTERNAL_SERVER_ERROR);
   }
 }

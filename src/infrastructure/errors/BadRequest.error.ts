@@ -3,6 +3,6 @@ import CustomAPIError from './CustomError';
 
 export default class BadRequestError extends CustomAPIError {
   constructor(message: string) {
-    super(message, StatusCodes.BAD_REQUEST);
+    super(message, 'Bad Request', StatusCodes.BAD_REQUEST);
   }
 }

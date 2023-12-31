@@ -11,7 +11,7 @@ import FindAllEvents from '../../core/usecases/event/FindAllEvents.use-case';
 import FindAllEventsController from '../controllers/event/FindAllEvents.controller';
 import DeleteManyEvents from '../../core/usecases/event/DeleteManyEvents.use-case';
 import DeleteManyEventsController from '../controllers/event/DeleteManyEvents.controller';
-import FindOneEvent from '../../core/usecases/event/FindOneEvent,use-case';
+import FindOneEvent from '../../core/usecases/event/FindOneEvent.use-case';
 import FindOneEventController from '../controllers/event/FindOneEvent.controller';
 import DeleteOneEvent from '../../core/usecases/event/DeleteOneEvent.use-case';
 import DeleteOneEventController from '../controllers/event/DeleteOneEvent.controller';

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import NotFoundError from '../../errors/NotFound.error';
-import FindOneEvent from '../../../core/usecases/event/FindOneEvent,use-case';
+import FindOneEvent from '../../../core/usecases/event/FindOneEvent.use-case';
 
 export default class FindOneEventController {
   constructor(private usecase: FindOneEvent) {}

@@ -1,4 +1,4 @@
-import User, { UserProps } from '../src/core/entities/User.entity';
+import User, { UserProps } from '../../../src/core/entities/User.entity';
 
 describe('User entity', () => {
   it('Should have the correct properties for a user', () => {

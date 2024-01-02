@@ -10,6 +10,7 @@ export function Validator(schema: Schema) {
       throw new ValidationError(result);
     }
 
+    req.body = result.value;
     next();
   };
 }

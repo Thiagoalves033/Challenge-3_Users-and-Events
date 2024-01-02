@@ -77,7 +77,7 @@ export default function ErrorHandler(err: any, req: Request, res: Response, _nex
 
   return res.status(500).json({
     statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-    msg: err.message,
-    error: 'Unknown Error'
+    msg: 'Something went wrong',
+    error: 'Internal Server Error'
   });
 }

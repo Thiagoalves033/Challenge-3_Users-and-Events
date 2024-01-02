@@ -5,11 +5,13 @@ const DateJoi = Joi.extend(JoiDate);
 
 export const UserSignUpValidation = Joi.object({
   firstName: Joi.string().trim(true).messages({
-    'string.base': `The firstName provided, '{#value}', is not valid.`
+    'string.base': `The firstName provided, '{#value}', is not valid.`,
+    'string.empty': 'firstName cannot be empty'
   }),
 
   lastName: Joi.string().trim(true).messages({
-    'string.base': `The lastName provided, '{#value}', is not valid.`
+    'string.base': `The lastName provided, '{#value}', is not valid.`,
+    'string.empty': 'lastName cannot be empty'
   }),
 
   birthDate: DateJoi.date().format('YYYY-MM-DD').greater('1900-01-01').messages({
@@ -18,19 +20,23 @@ export const UserSignUpValidation = Joi.object({
   }),
 
   city: Joi.string().trim(true).messages({
-    'string.base': `The city provided, '{#value}', is not valid.`
+    'string.base': `The city provided, '{#value}', is not valid.`,
+    'string.empty': 'city cannot be empty'
   }),
 
   country: Joi.string().trim(true).messages({
-    'string.base': `The country provided, '{#value}', is not valid.`
+    'string.base': `The country provided, '{#value}', is not valid.`,
+    'string.empty': 'country cannot be empty'
   }),
 
   email: Joi.string().trim(true).email().messages({
-    'string.email': `The email provided, '{#value}', is not valid.`
+    'string.email': `The email provided, '{#value}', is not valid.`,
+    'string.empty': 'email cannot be empty'
   }),
 
   password: Joi.string().trim(false).messages({
-    'string.base': `The password provided, '{#value}', is not valid.`
+    'string.base': `The password provided, '{#value}', is not valid.`,
+    'string.empty': 'password cannot be empty'
   }),
 
   confirmPassword: Joi.any().valid(Joi.ref('password')).required().messages({

@@ -1,4 +1,4 @@
-import User from '../../entities/User.entity';
+import User from '../../enterprise/entities/User.entity';
 
 export default interface IUserRepository {
   insert(user: User): Promise<void>;

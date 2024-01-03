@@ -1,4 +1,4 @@
-import Event from '../../entities/Event.entity';
+import Event from '../../enterprise/entities/Event.entity';
 
 export default interface IEventRepository {
   insert(event: Event): Promise<void>;

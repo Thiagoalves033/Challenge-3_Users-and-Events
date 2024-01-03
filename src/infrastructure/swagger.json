@@ -7,10 +7,14 @@
   },
   "servers": [
     {
-      "url": "http://localhost:{port}",
+      "url": "http://localhost:{port}/api/{version}",
       "variables": {
         "port": {
           "default": "3000"
+        },
+        "version": {
+          "default": "v1",
+          "enum": ["v1"]
         }
       }
     }

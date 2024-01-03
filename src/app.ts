@@ -11,8 +11,8 @@ import swaggerConfig from './infrastructure/swagger.json';
 const app: Express = express();
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConfig));
-app.use('/users', userRouter);
-app.use('/events', eventRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/events', eventRouter);
 app.use(ErrorHandler);
 
 const port = process.env.PORT || 3000;

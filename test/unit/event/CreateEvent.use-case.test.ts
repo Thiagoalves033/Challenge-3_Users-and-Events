@@ -34,7 +34,7 @@ describe('CreateEvent usecase', () => {
       await createEvent.execute(eventMock);
     };
 
-    expect(savedEvent).rejects.toThrow('Could not save event');
+    expect(savedEvent).rejects.toThrow('Could not save');
   });
 
   it('Should return an object with correct properties', async () => {

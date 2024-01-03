@@ -5,9 +5,12 @@ import express, { Express } from 'express';
 import ErrorHandler from './infrastructure/middlewares/ErrorHandler.middleware';
 import userRouter from './infrastructure/routes/user.route';
 import eventRouter from './infrastructure/routes/event.route';
+import swaggerUi from 'swagger-ui-express';
+import swaggerConfig from './infrastructure/swagger.json';
 
 const app: Express = express();
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConfig));
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
 app.use(ErrorHandler);

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import EventNotFoundError from '../../core/errors/EventNotFound.error';
 import EmailAlreadyInUseError from '../../core/errors/EmailAlreadyInUse.error';
-import EventNotSavedError from '../../core/errors/EventNotSaved.error';
+import NotSavedError from '../../core/errors/NotSaved.error';
 import InvalidPasswordError from '../../core/errors/InvalidPassword.error';
 import { StatusCodes } from 'http-status-codes';
 import ValidationError from '../errors/Validation.error';
@@ -21,7 +21,7 @@ export default function ErrorHandler(err: any, req: Request, res: Response, _nex
       .json({ statusCode: StatusCodes.CONFLICT, msg: err.message, error: 'Conflict' });
   }
 
-  if (err instanceof EventNotSavedError) {
+  if (err instanceof NotSavedError) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
       msg: err.message,

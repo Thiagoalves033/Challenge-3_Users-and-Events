@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { Validator } from '../middlewares/Validator.middleware';
 import { CreateEventValidation } from '../validation/Event-Joi.validation';
+import { QueryValidator } from '../middlewares/QueryValidator.middleware';
+import { DeleteManyValidation, FindAllValidation } from '../validation/Query-Joi.validation';
 import UserAuthMiddleware from '../middlewares/UserAuthMiddleware';
 import UserInMongoRepository from '../repositories/UserInMongo.repository';
 import Connection from '../database/Connection';
@@ -42,8 +44,16 @@ eventRouter
     UserAuthMiddleware(UserRepo),
     createEventController.handle
   )
-  .get(UserAuthMiddleware(UserRepo), findAllEventsController.handle)
-  .delete(UserAuthMiddleware(UserRepo), deleteManyEventsController.handle);
+  .get(
+    QueryValidator(FindAllValidation),
+    UserAuthMiddleware(UserRepo),
+    findAllEventsController.handle
+  )
+  .delete(
+    QueryValidator(DeleteManyValidation),
+    UserAuthMiddleware(UserRepo),
+    deleteManyEventsController.handle
+  );
 
 eventRouter
   .route('/:id')

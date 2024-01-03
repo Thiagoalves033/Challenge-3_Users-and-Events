@@ -1,6 +1,6 @@
-import EventNotFoundError from '../../errors/EventNotFound.error';
-import UseCase from '../../ports/interfaces/UseCase';
-import IEventRepository from '../../ports/repositories/Event.repository';
+import UseCase from '../../../../core/ports/UseCase.port';
+import IEventRepository from '../../repositories/Event.repository';
+import EventNotFoundError from '../errors/EventNotFound.error';
 
 export default class DeleteOneEvent implements UseCase<string, void> {
   constructor(private EventRepo: IEventRepository) {}

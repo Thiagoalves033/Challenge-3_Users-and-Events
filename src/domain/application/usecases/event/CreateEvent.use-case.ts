@@ -1,7 +1,7 @@
-import UseCase from '../../ports/interfaces/UseCase';
-import Event from '../../entities/Event.entity';
-import IEventRepository from '../../ports/repositories/Event.repository';
-import NotSavedError from '../../errors/NotSaved.error';
+import UseCase from '../../../../core/ports/UseCase.port';
+import Event from '../../../enterprise/entities/Event.entity';
+import IEventRepository from '../../repositories/Event.repository';
+import NotSavedError from '../errors/NotSaved.error';
 
 type CreateInput = {
   description: string;

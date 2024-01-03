@@ -1,5 +1,5 @@
-import UseCase from '../../ports/interfaces/UseCase';
-import IEventRepository from '../../ports/repositories/Event.repository';
+import UseCase from '../../../../core/ports/UseCase.port';
+import IEventRepository from '../../repositories/Event.repository';
 
 type DeleteManyOutput = {
   id: string;

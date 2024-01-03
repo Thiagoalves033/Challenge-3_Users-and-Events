@@ -30,16 +30,32 @@ describe('UserSignUp usecase', () => {
   });
 
   it('Should encrypt password and insert a new user', async () => {
+    const user = new User(userMock);
+
     userRepoMock.findByEmail.mockResolvedValueOnce(null);
+    userRepoMock.findByEmail.mockResolvedValueOnce(user);
     encrypterMock.encrypt.mockResolvedValueOnce('encryptedPass');
 
-    await userSignUp.execute(new User(userMock));
+    await userSignUp.execute(user);
 
     expect(encrypterMock.encrypt).toHaveBeenCalledWith('password');
     expect(userRepoMock.insert).toHaveBeenCalledWith(expect.any(User));
     expect(userRepoMock.insert).toHaveBeenCalledWith(
       expect.objectContaining({ password: 'encryptedPass' })
     );
+    expect(userRepoMock.findByEmail).toHaveBeenCalledTimes(2);
+  });
+
+  it('Should return an object without password', async () => {
+    const user = new User(userMock);
+
+    userRepoMock.findByEmail.mockResolvedValueOnce(null);
+    userRepoMock.findByEmail.mockResolvedValueOnce(user);
+    encrypterMock.encrypt.mockResolvedValueOnce('encryptedPass');
+
+    const output = await userSignUp.execute(user);
+
+    expect(output).not.toHaveProperty('password');
   });
 
   it('Should throw an error if existing email is found', async () => {
@@ -50,5 +66,17 @@ describe('UserSignUp usecase', () => {
     };
 
     expect(existingUser).rejects.toThrow('Email already in use');
+  });
+
+  it('Should throw an error if user not saved correctly', async () => {
+    userRepoMock.findByEmail.mockResolvedValueOnce(null);
+    encrypterMock.encrypt.mockResolvedValueOnce('encryptedPass');
+
+    const existingUser = async () => {
+      await userSignUp.execute(new User(userMock));
+    };
+
+    await expect(existingUser).rejects.toThrow('Could not save');
+    expect(userRepoMock.findByEmail).toHaveBeenCalledTimes(2);
   });
 });

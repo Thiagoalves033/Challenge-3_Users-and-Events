@@ -1,4 +1,4 @@
-import UseCaseError from '../ports/interfaces/UseCaseError';
+import UseCaseError from '../../../../core/errors/UseCaseError.error';
 
 export default class EmailAlreadyInUseError extends UseCaseError {
   constructor() {

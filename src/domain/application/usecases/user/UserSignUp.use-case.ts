@@ -1,9 +1,9 @@
-import User from '../../entities/User.entity';
-import IUserRepository from '../../ports/repositories/User.repository';
-import IPasswordEncrypter from '../../ports/interfaces/PasswordEncrypter.port';
-import UseCase from '../../ports/interfaces/UseCase';
-import EmailAlreadyInUseError from '../../errors/EmailAlreadyInUse.error';
-import NotSavedError from '../../errors/NotSaved.error';
+import UseCase from '../../../../core/ports/UseCase.port';
+import User from '../../../enterprise/entities/User.entity';
+import IUserRepository from '../../repositories/User.repository';
+import IEncrypter from '../../../../core/ports/Encrypter.port';
+import EmailAlreadyInUseError from '../errors/EmailAlreadyInUse.error';
+import NotSavedError from '../errors/NotSaved.error';
 
 type SignUpOutput = {
   id: string;
@@ -17,7 +17,7 @@ type SignUpOutput = {
 export default class UserSignUp implements UseCase<User, SignUpOutput> {
   constructor(
     private UserRepo: IUserRepository,
-    private Encrypter: IPasswordEncrypter
+    private Encrypter: IEncrypter
   ) {}
 
   async execute(input: User): Promise<SignUpOutput> {

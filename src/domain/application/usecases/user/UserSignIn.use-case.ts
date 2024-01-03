@@ -1,9 +1,9 @@
-import EmailAlreadyInUseError from '../../errors/EmailAlreadyInUse.error';
-import InvalidPasswordError from '../../errors/InvalidPassword.error';
-import IPasswordEncrypter from '../../ports/interfaces/PasswordEncrypter.port';
-import ITokenProvider from '../../ports/interfaces/TokenProvider';
-import UseCase from '../../ports/interfaces/UseCase';
-import IUserRepository from '../../ports/repositories/User.repository';
+import UseCase from '../../../../core/ports/UseCase.port';
+import IUserRepository from '../../repositories/User.repository';
+import IEncrypter from '../../../../core/ports/Encrypter.port';
+import ITokenProvider from '../../../../core/ports/TokenProvider.port';
+import EmailAlreadyInUseError from '../errors/EmailAlreadyInUse.error';
+import InvalidPasswordError from '../errors/InvalidPassword.error';
 
 type SignInInput = {
   email: string;
@@ -20,7 +20,7 @@ type SignInOutput = {
 export default class UserSignIn implements UseCase<SignInInput, SignInOutput> {
   constructor(
     private UserRepo: IUserRepository,
-    private Encrypter: IPasswordEncrypter,
+    private Encrypter: IEncrypter,
     private TokenProvider: ITokenProvider
   ) {}
 

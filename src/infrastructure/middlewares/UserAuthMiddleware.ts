@@ -19,7 +19,13 @@ export default function UserAuthMiddleware(UserRepo: IUserRepository) {
     if (token.includes('Bearer')) token = token.split(' ')[1];
 
     const JwtProvider = new JWTProvider(process.env.JWT_SECRET!);
-    const userToken = JwtProvider.verify(token as string) as TokenPayload;
+
+    let userToken;
+    try {
+      userToken = JwtProvider.verify(token as string) as TokenPayload;
+    } catch (error) {
+      throw new UnauthorizedError('Unauthorized User');
+    }
 
     const user = await UserRepo.findByEmail(userToken.email);
     if (!user) {

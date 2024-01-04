@@ -1,14 +1,19 @@
-import { Router } from 'express';
-import { Validator } from '../middlewares/Validator.middleware';
-import { UserSignInValidation, UserSignUpValidation } from '../validation/User-Joi.validation';
+import UserSignUp from '../../../domain/application/usecases/user/UserSignUp.use-case';
+import UserSignIn from '../../../domain/application/usecases/user/UserSignIn.use-case';
+
+import UserInMongoRepository from '../../database/repositories/UserInMongo.repository';
+import Connection from '../../database/Connection';
+
 import UserSignUpController from '../controllers/user/UserSignUp.controller';
-import UserSignUp from '../../core/usecases/user/UserSignUp.use-case';
-import Connection from '../database/Connection';
-import UserInMongoRepository from '../repositories/UserInMongo.repository';
-import PasswordHasher from '../providers/PasswordHasher';
-import UserSignIn from '../../core/usecases/user/UserSignIn.use-case';
-import JWTProvider from '../providers/JwtTokenProvider';
 import UserSignInController from '../controllers/user/UserSignIn.controller';
+
+import PasswordHasher from '../../adapters/BcryptEncrypter.adapter';
+import JWTProvider from '../../adapters/JwtTokenProvider.adapter';
+
+import { UserSignInValidation, UserSignUpValidation } from '../../validation/User-Joi.validation';
+
+import { Router } from 'express';
+import Validator from '../middlewares/Validator.middleware';
 
 const userRouter = Router();
 

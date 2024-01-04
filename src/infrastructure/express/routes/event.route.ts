@@ -1,22 +1,26 @@
-import { Router } from 'express';
-import { Validator } from '../middlewares/Validator.middleware';
-import { CreateEventValidation } from '../validation/Event-Joi.validation';
-import { QueryValidator } from '../middlewares/QueryValidator.middleware';
-import { DeleteManyValidation, FindAllValidation } from '../validation/Query-Joi.validation';
-import UserAuthMiddleware from '../middlewares/UserAuthMiddleware';
-import UserInMongoRepository from '../repositories/UserInMongo.repository';
-import Connection from '../database/Connection';
-import EventInMongoRepository from '../repositories/EventInMongo.repository';
-import CreateEvent from '../../core/usecases/event/CreateEvent.use-case';
+import CreateEvent from '../../../domain/application/usecases/event/CreateEvent.use-case';
+import FindAllEvents from '../../../domain/application/usecases/event/FindAllEvents.use-case';
+import DeleteManyEvents from '../../../domain/application/usecases/event/DeleteManyEvents.use-case';
+import FindOneEvent from '../../../domain/application/usecases/event/FindOneEvent.use-case';
+import DeleteOneEvent from '../../../domain/application/usecases/event/DeleteOneEvent.use-case';
+
+import UserInMongoRepository from '../../database/repositories/UserInMongo.repository';
+import EventInMongoRepository from '../../database/repositories/EventInMongo.repository';
+import Connection from '../../database/Connection';
+
 import CreateEventController from '../controllers/event/CreateEvent.controller';
-import FindAllEvents from '../../core/usecases/event/FindAllEvents.use-case';
 import FindAllEventsController from '../controllers/event/FindAllEvents.controller';
-import DeleteManyEvents from '../../core/usecases/event/DeleteManyEvents.use-case';
 import DeleteManyEventsController from '../controllers/event/DeleteManyEvents.controller';
-import FindOneEvent from '../../core/usecases/event/FindOneEvent.use-case';
 import FindOneEventController from '../controllers/event/FindOneEvent.controller';
-import DeleteOneEvent from '../../core/usecases/event/DeleteOneEvent.use-case';
 import DeleteOneEventController from '../controllers/event/DeleteOneEvent.controller';
+
+import { CreateEventValidation } from '../../validation/Event-Joi.validation';
+import { DeleteManyValidation, FindAllValidation } from '../../validation/Query-Joi.validation';
+
+import { Router } from 'express';
+import Validator from '../middlewares/Validator.middleware';
+import QueryValidator from '../middlewares/QueryValidator.middleware';
+import Authenticator from '../middlewares/Authenticator.middleware';
 
 const eventRouter = Router();
 
@@ -39,25 +43,17 @@ const deleteOneEventController = new DeleteOneEventController(DeleteOneEventUseC
 
 eventRouter
   .route('/')
-  .post(
-    Validator(CreateEventValidation),
-    UserAuthMiddleware(UserRepo),
-    createEventController.handle
-  )
-  .get(
-    QueryValidator(FindAllValidation),
-    UserAuthMiddleware(UserRepo),
-    findAllEventsController.handle
-  )
+  .post(Validator(CreateEventValidation), Authenticator(UserRepo), createEventController.handle)
+  .get(QueryValidator(FindAllValidation), Authenticator(UserRepo), findAllEventsController.handle)
   .delete(
     QueryValidator(DeleteManyValidation),
-    UserAuthMiddleware(UserRepo),
+    Authenticator(UserRepo),
     deleteManyEventsController.handle
   );
 
 eventRouter
   .route('/:id')
-  .get(UserAuthMiddleware(UserRepo), findOneEventController.handle)
-  .delete(UserAuthMiddleware(UserRepo), deleteOneEventController.handle);
+  .get(Authenticator(UserRepo), findOneEventController.handle)
+  .delete(Authenticator(UserRepo), deleteOneEventController.handle);
 
 export default eventRouter;

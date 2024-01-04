@@ -37,7 +37,7 @@ describe('UserSignIn usecase', () => {
       await userSignIn.execute({ email: userMock.email, password: userMock.password });
     };
 
-    expect(existingUser).rejects.toThrow('Email already in use');
+    expect(existingUser).rejects.toThrow('Invalid Credentials');
   });
 
   it('Should throw an error if password is invalid', async () => {
@@ -48,7 +48,7 @@ describe('UserSignIn usecase', () => {
       await userSignIn.execute(new User(userMock));
     };
 
-    expect(invalidPass).rejects.toThrow('Invalid Password');
+    expect(invalidPass).rejects.toThrow('Invalid Credentials');
   });
 
   it('Should generate an output with a token', async () => {

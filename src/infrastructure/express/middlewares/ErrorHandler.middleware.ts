@@ -1,7 +1,7 @@
 import EventNotFoundError from '../../../domain/application/usecases/errors/EventNotFound.error';
 import EmailAlreadyInUseError from '../../../domain/application/usecases/errors/EmailAlreadyInUse.error';
 import NotSavedError from '../../../domain/application/usecases/errors/NotSaved.error';
-import InvalidPasswordError from '../../../domain/application/usecases/errors/InvalidPassword.error';
+import InvalidCredentialsError from '../../../domain/application/usecases/errors/InvalidCredentials.error';
 
 import ValidationError from '../../errors/Validation.error';
 import CustomAPIError from '../../errors/CustomError';
@@ -31,7 +31,7 @@ export default function ErrorHandler(err: any, req: Request, res: Response, _nex
     });
   }
 
-  if (err instanceof InvalidPasswordError) {
+  if (err instanceof InvalidCredentialsError) {
     return res
       .status(StatusCodes.UNAUTHORIZED)
       .json({ statusCode: StatusCodes.UNAUTHORIZED, msg: err.message, error: 'Unauthorized' });

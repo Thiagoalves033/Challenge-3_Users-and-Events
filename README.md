@@ -1,16 +1,21 @@
 # Challenge 03 - Users and Events
 
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Node](https://img.shields.io/badge/-nodejs-black?style=for-the-badge&logoColor=white&logo=node.js&color=366A31) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![Mongo](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![Jest](https://img.shields.io/badge/-Jest-black?style=for-the-badge&logoColor=white&logo=jest&color=BF3B14) ![ESlint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 
-![Node](https://img.shields.io/badge/-nodejs-black?style=for-the-badge&logoColor=white&logo=node.js&color=366A31)
+## 📋 Table of Contents
 
-## Overview
+1. 🔍 [Overview](#-overview)
+2. 📚 [Prerequisites](#-prerequisites)
+3. 🔨 [Installation](#-installation)
+4. 🔧 [Configuration](#-configuration)
+5. 🚀 [Build](#-build)
+6. 🌐 [API Endpoints](#-api-endpoints)
+
+## 🔍 Overview
 
 This is a REST API designed to manage events through authorized users.
 
-## :computer: Running
-
-### :books: Prerequisites
+## 📚 Prerequisites
 
 - **Node.js**:
   A JavaScript runtime that allows JavaScript code to be used outside a web browser. It can be downloaded here: https://nodejs.org/en. LTS version is recommended.
@@ -29,7 +34,7 @@ This is a REST API designed to manage events through authorized users.
 
 - **Text Editor or IDE**: You'll need a text editor or an Integrated Development Environment (IDE) to view and edit the code. A very popular choice is Visual Studio Code, which can be downloaded here: https://code.visualstudio.com/.
 
-### :hammer: Installation
+## 🔨 Installation
 
 1. **Download this repository.**
 
@@ -54,7 +59,7 @@ Extract the ZIP file to the desired folder
 npm install
 ```
 
-### :wrench: Configuration
+## 🔧 Configuration
 
 Create a file called `.env` on your root folder and refer to the table bellow in order to fulfill it.
 
@@ -64,7 +69,7 @@ Create a file called `.env` on your root folder and refer to the table bellow in
 | `MONGO_URI`  | Connection string to your MongoDB Atlas database |    ✅    |      ❌       |              Can't be empty string               |
 | `JWT_SECRET` |   Secret string used to create your JWT Tokens   |    ✅    |      ❌       |              Can't be empty string               |
 
-## :rocket: Build
+## 🚀 Build
 
 In order to build the application for development, run the following commands:
 
@@ -86,4 +91,33 @@ npm build
 npm start
 ```
 
-## API Endpoints
+## 🌐 API Endpoints
+
+**Note:** `<URL>` used in this section means `localhost:<your_port>/api/v1`
+
+### `<URL>/user/sign-up`
+
+> HTTP methods
+>
+> - POST — Create a new user
+
+### `<URL>/user/sign-in`
+
+> HTTP methods
+>
+> - POST — Login of an existing user
+
+### `<URL>/events`
+
+> HTTP methods
+>
+> - POST — Create a new event
+> - GET — Get events
+> - DELETE — Delete events
+
+### `<URL>/events/:id`
+
+> HTTP methods
+>
+> - GET — Get a single event
+> - DELETE — Delete a single event

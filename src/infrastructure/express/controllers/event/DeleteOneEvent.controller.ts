@@ -1,6 +1,6 @@
+import NotFoundError from '../../../errors/NotFound.error';
+import DeleteOneEvent from '../../../../domain/application/usecases/event/DeleteOneEvent.use-case';
 import { Request, Response } from 'express';
-import NotFoundError from '../../errors/NotFound.error';
-import DeleteOneEvent from '../../../core/usecases/event/DeleteOneEvent.use-case';
 
 export default class DeleteOneEventController {
   constructor(private usecase: DeleteOneEvent) {}

@@ -1,7 +1,7 @@
+import CreateEvent from '../../../../domain/application/usecases/event/CreateEvent.use-case';
+import IUserRepository from '../../../../domain/application/repositories/User.repository';
+import UnauthorizedError from '../../../errors/Unauthorized.error';
 import { Request, Response } from 'express';
-import CreateEvent from '../../../core/usecases/event/CreateEvent.use-case';
-import IUserRepository from '../../../core/ports/repositories/User.repository';
-import UnauthorizedError from '../../errors/Unauthorized.error';
 
 export default class CreateEventController {
   constructor(

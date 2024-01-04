@@ -1,5 +1,5 @@
+import DeleteManyEvents from '../../../../domain/application/usecases/event/DeleteManyEvents.use-case';
 import { Request, Response } from 'express';
-import DeleteManyEvents from '../../../core/usecases/event/DeleteManyEvents.use-case';
 
 export default class DeleteManyEventsController {
   constructor(private usecase: DeleteManyEvents) {}

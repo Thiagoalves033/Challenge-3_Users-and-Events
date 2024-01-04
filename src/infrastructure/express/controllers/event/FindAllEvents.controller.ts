@@ -1,5 +1,5 @@
+import FindAllEvents from '../../../../domain/application/usecases/event/FindAllEvents.use-case';
 import { Request, Response } from 'express';
-import FindAllEvents from '../../../core/usecases/event/FindAllEvents.use-case';
 
 export default class FindAllEventsController {
   constructor(private usecase: FindAllEvents) {}

@@ -1,5 +1,5 @@
+import UserSignIn from '../../../../domain/application/usecases/user/UserSignIn.use-case';
 import { Request, Response } from 'express';
-import UserSignIn from '../../../core/usecases/user/UserSignIn.use-case';
 
 export default class UserSignInController {
   constructor(private usecase: UserSignIn) {}

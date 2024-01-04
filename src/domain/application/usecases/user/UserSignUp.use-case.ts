@@ -1,4 +1,4 @@
-import UseCase from '../../../../core/ports/UseCase.port';
+import UseCase from '../../../../core/usecases/UseCase';
 import User from '../../../enterprise/entities/User.entity';
 import IUserRepository from '../../repositories/User.repository';
 import IEncrypter from '../../../../core/ports/Encrypter.port';

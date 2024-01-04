@@ -1,5 +1,5 @@
-import User from '../../../src/core/entities/User.entity';
-import UserSignIn from '../../../src/core/usecases/user/UserSignIn.use-case';
+import User from '../../../src/domain/enterprise/entities/User.entity';
+import UserSignIn from '../../../src/domain/application/usecases/user/UserSignIn.use-case';
 
 const userRepoMock = {
   findByEmail: jest.fn(),

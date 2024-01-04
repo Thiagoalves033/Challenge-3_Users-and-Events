@@ -1,4 +1,4 @@
-import Event, { EventProps } from '../../../src/core/entities/Event.entity';
+import Event, { EventProps } from '../../../src/domain/enterprise/entities/Event.entity';
 
 describe('Event entity', () => {
   it('Should have the correct properties for an event', () => {

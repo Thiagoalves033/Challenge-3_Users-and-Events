@@ -9,7 +9,7 @@ import userRouter from './infrastructure/express/routes/user.route';
 import eventRouter from './infrastructure/express/routes/event.route';
 
 import swaggerUi from 'swagger-ui-express';
-import swaggerConfig from './infrastructure/swagger.json';
+import swaggerConfig from './swagger.json';
 
 const app: Express = express();
 

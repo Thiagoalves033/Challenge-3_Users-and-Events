@@ -1,5 +1,5 @@
-import Event from '../../../src/core/entities/Event.entity';
-import CreateEvent from '../../../src/core/usecases/event/CreateEvent.use-case';
+import Event from '../../../src/domain/enterprise/entities/Event.entity';
+import CreateEvent from '../../../src/domain/application/usecases/event/CreateEvent.use-case';
 
 const eventRepoMock = {
   insert: jest.fn(),

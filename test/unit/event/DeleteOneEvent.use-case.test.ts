@@ -1,4 +1,4 @@
-import DeleteOneEvent from '../../../src/core/usecases/event/DeleteOneEvent.use-case';
+import DeleteOneEvent from '../../../src/domain/application/usecases/event/DeleteOneEvent.use-case';
 
 const eventRepoMock = {
   insert: jest.fn(),

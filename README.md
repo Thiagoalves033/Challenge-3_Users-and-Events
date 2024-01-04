@@ -40,21 +40,19 @@ This is a REST API designed to manage events through authorized users.
 
 - Download ZIP
 
-```
-# On the main page of the repository, click on the 'Code' button, then click 'Download ZIP'
-Extract the ZIP file to the desired folder
-```
+  - On the main page of the repository, click on the `Code` button, then click `Download ZIP`
+  - Extract the ZIP file to the desired folder on your local machine.
 
 - Git
 
-```
+```bash
 # If you use Git, simply run the following command on the desired folder:
  git clone git@github.com:Thiagoalves033/Challenge-3_Users-and-Events.git
 ```
 
 2. **Dependencies**
 
-```
+```bash
 # Install the project dependencies
 npm install
 ```
@@ -73,7 +71,7 @@ Create a file called `.env` on your root folder and refer to the table bellow in
 
 In order to build the application for development, run the following commands:
 
-```
+```bash
 # Build the app
 npm build
 
@@ -83,7 +81,7 @@ npm start:dev
 
 In order to build the application for production, run the following commands:
 
-```
+```bash
 # Build the app
 npm build
 

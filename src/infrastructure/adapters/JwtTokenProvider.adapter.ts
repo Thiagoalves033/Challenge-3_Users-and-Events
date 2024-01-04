@@ -1,5 +1,5 @@
+import ITokenProvider from '../../core/ports/TokenProvider.port';
 import jwt from 'jsonwebtoken';
-import ITokenProvider from '../../core/ports/interfaces/TokenProvider';
 
 export default class JWTProvider implements ITokenProvider {
   constructor(private secret: string) {}

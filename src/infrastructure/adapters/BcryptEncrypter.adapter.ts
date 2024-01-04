@@ -1,7 +1,7 @@
-import IPasswordEncrypter from '../../core/ports/interfaces/PasswordEncrypter.port';
+import IEncrypter from '../../core/ports/Encrypter.port';
 import { hash, genSalt, compare } from 'bcrypt';
 
-export default class PasswordHasher implements IPasswordEncrypter {
+export default class PasswordHasher implements IEncrypter {
   async encrypt(password: string): Promise<string> {
     const saltRounds = await genSalt(10);
     return await hash(password, saltRounds);

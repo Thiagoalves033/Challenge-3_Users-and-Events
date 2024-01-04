@@ -1,7 +1,7 @@
+import IUserRepository from '../../../domain/application/repositories/User.repository';
+import JWTProvider from '../../adapters/JwtTokenProvider.adapter';
+import UnauthorizedError from '../../errors/Unauthorized.error';
 import { Request, Response, NextFunction } from 'express';
-import JWTProvider from '../providers/JwtTokenProvider';
-import IUserRepository from '../../core/ports/repositories/User.repository';
-import UnauthorizedError from '../errors/Unauthorized.error';
 
 type TokenPayload = {
   firstName: string;

@@ -1,12 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
-import EventNotFoundError from '../../core/errors/EventNotFound.error';
-import EmailAlreadyInUseError from '../../core/errors/EmailAlreadyInUse.error';
-import NotSavedError from '../../core/errors/NotSaved.error';
-import InvalidPasswordError from '../../core/errors/InvalidPassword.error';
-import { StatusCodes } from 'http-status-codes';
-import ValidationError from '../errors/Validation.error';
+import EventNotFoundError from '../../../domain/application/usecases/errors/EventNotFound.error';
+import EmailAlreadyInUseError from '../../../domain/application/usecases/errors/EmailAlreadyInUse.error';
+import NotSavedError from '../../../domain/application/usecases/errors/NotSaved.error';
+import InvalidPasswordError from '../../../domain/application/usecases/errors/InvalidPassword.error';
+
+import ValidationError from '../../errors/Validation.error';
+import CustomAPIError from '../../errors/CustomError';
+
 import mongoose from 'mongoose';
-import CustomAPIError from '../errors/CustomError';
+import { StatusCodes } from 'http-status-codes';
+import { Request, Response, NextFunction } from 'express';
 
 export default function ErrorHandler(err: any, req: Request, res: Response, _next: NextFunction) {
   if (err instanceof EventNotFoundError) {

@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from 'express';
+import ValidationError from '../../errors/Validation.error';
 import { Schema, ValidationResult } from 'joi';
-import ValidationError from '../errors/Validation.error';
+import { Request, Response, NextFunction } from 'express';
 
-export function Validator(schema: Schema) {
+export default function Validator(schema: Schema) {
   return (req: Request, res: Response, next: NextFunction) => {
     const result: ValidationResult = schema.validate(req.body, { abortEarly: false });
 

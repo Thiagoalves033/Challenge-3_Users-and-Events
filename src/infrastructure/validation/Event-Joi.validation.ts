@@ -1,17 +1,17 @@
 import Joi from 'joi';
 
 const daysOfWeekEnum = [
+  'sunday',
   'monday',
   'tuesday',
   'wednesday',
   'thursday',
   'friday',
-  'saturday',
-  'sunday'
+  'saturday'
 ];
 
 export const CreateEventValidation = Joi.object({
-  description: Joi.string().messages({
+  description: Joi.string().trim(true).messages({
     'string.base': `The description provided, '{#value}', is not valid.`,
     'string.empty': 'description cannot be empty'
   }),
@@ -23,7 +23,7 @@ export const CreateEventValidation = Joi.object({
       'string.base': `The dayOfWeek provided, '{#value}', is not valid.`,
       'string.empty': 'dayOfWeek cannot be empty',
       'any.only':
-        'dayOfWeek must be one of the following values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'
+        'dayOfWeek must be one of the following values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday'
     })
 })
   .unknown(false)

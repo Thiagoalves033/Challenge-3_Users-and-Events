@@ -217,7 +217,7 @@
             "BearerAuth": []
           }
         ],
-        "summary": "Gets events",
+        "summary": "Get events",
         "tags": ["Event"],
         "parameters": [
           {

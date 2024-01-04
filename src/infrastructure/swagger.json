@@ -66,6 +66,16 @@
               }
             }
           },
+          "409": {
+            "description": "Invalid Credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConflictError"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Server Error",
             "content": {
@@ -745,6 +755,23 @@
           "error": {
             "type": "string",
             "example": "Not Found"
+          }
+        }
+      },
+      "ConflictError": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number",
+            "example": 409
+          },
+          "msg": {
+            "type": "string",
+            "example": "Email already in use"
+          },
+          "error": {
+            "type": "string",
+            "example": "Conflict"
           }
         }
       },

@@ -1,4 +1,4 @@
-import UseCase from '../../../../core/ports/UseCase.port';
+import UseCase from '../../../../core/usecases/UseCase';
 import IEventRepository from '../../repositories/Event.repository';
 
 type FindAllOutput = {

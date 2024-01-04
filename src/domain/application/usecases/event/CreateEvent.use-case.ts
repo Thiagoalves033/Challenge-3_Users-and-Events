@@ -1,4 +1,4 @@
-import UseCase from '../../../../core/ports/UseCase.port';
+import UseCase from '../../../../core/usecases/UseCase';
 import Event from '../../../enterprise/entities/Event.entity';
 import IEventRepository from '../../repositories/Event.repository';
 import NotSavedError from '../errors/NotSaved.error';

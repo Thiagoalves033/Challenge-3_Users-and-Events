@@ -1,7 +1,7 @@
-import Event from '../../core/entities/Event.entity';
-import IEventRepository from '../../core/ports/repositories/Event.repository';
-import Connection from '../database/Connection';
-import EventModel from '../database/event/EventModel';
+import Event from '../../../domain/enterprise/entities/Event.entity';
+import IEventRepository from '../../../domain/application/repositories/Event.repository';
+import EventModel from '../event/EventModel';
+import Connection from '../Connection';
 
 type QueryObject = {
   day?: string;

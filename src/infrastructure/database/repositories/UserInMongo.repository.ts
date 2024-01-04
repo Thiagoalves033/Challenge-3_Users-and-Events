@@ -1,7 +1,7 @@
-import User from '../../core/entities/User.entity';
-import IUserRepository from '../../core/ports/repositories/User.repository';
-import Connection from '../database/Connection';
-import UserModel from '../database/user/UserModel';
+import User from '../../../domain/enterprise/entities/User.entity';
+import IUserRepository from '../../../domain/application/repositories/User.repository';
+import UserModel from '../user/UserModel';
+import Connection from '../Connection';
 
 export default class UserInMongoRepository implements IUserRepository {
   constructor(readonly connection: Connection) {}

@@ -96,17 +96,13 @@ npm start
 
 ![Jest Test Count](https://img.shields.io/badge/Tests-46-red)
 
-<!-- prettier-ignore -->
-![Statements Count](https://img.shields.io/badge/Statements-208/208_covered_(100%)-red)
+![Statements Count](https://img.shields.io/badge/Statements-208/208_covered_%28100%25%29-red)
 
-<!-- prettier-ignore -->
-![Covered Branches](https://img.shields.io/badge/Branches-24/24_covered_(100%)-red)
+![Covered Branches](https://img.shields.io/badge/Branches-24/24_covered_%28100%25%29-red)
 
-<!-- prettier-ignore -->
-![Covered Functions](https://img.shields.io/badge/Functions-44/44_covered_(100%)-red)
+![Covered Functions](https://img.shields.io/badge/Functions-44/44_covered_%28100%25%29-red)
 
-<!-- prettier-ignore -->
-![Covered Lines](https://img.shields.io/badge/Lines-198/198_covered_(100%)-red)
+![Covered Lines](https://img.shields.io/badge/Lines-198/198_covered_%28100%25%29-red)
 
 ### ▶️ Commands
 

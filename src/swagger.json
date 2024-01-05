@@ -261,7 +261,7 @@
             "description": "Sort by",
             "schema": {
               "type": "string",
-              "enum": ["description", "dayOfWeek"]
+              "enum": ["description", "dayOfWeek", "-description", "-dayOfWeek"]
             }
           }
         ],

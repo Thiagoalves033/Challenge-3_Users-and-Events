@@ -4,6 +4,7 @@ dotenv.config();
 import 'express-async-errors';
 
 import express, { Express } from 'express';
+import ExpressServer from './infrastructure/express/server';
 import ErrorHandler from './infrastructure/express/middlewares/ErrorHandler.middleware';
 import userRouter from './infrastructure/express/routes/user.route';
 import eventRouter from './infrastructure/express/routes/event.route';
@@ -21,12 +22,5 @@ app.use(ErrorHandler);
 
 const port = process.env.PORT || 3000;
 
-const start = async () => {
-  try {
-    app.listen(port, () => console.log(`Server listening on port ${port}...`));
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
+const server = new ExpressServer(app, port);
+server.start();

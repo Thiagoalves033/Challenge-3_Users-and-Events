@@ -11,6 +11,8 @@ type QueryObject = {
   page?: number;
 };
 
+const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
 type FilterList = {
   dayOfWeek?: { $regex: string; $options: 'i' };
   description?: { $regex: string; $options: 'i' };
@@ -39,7 +41,25 @@ export default class EventInMongoRepository implements IEventRepository {
     const skip = (page - 1) * limit;
     query = query.skip(skip).limit(limit);
 
-    const docs = await query.exec();
+    let docs = await query.exec();
+
+    if (sort && sort === 'dayOfWeek') {
+      docs = docs.sort((a, b) => {
+        return (
+          daysOfWeek.indexOf(a.dayOfWeek.toLowerCase()) -
+          daysOfWeek.indexOf(b.dayOfWeek.toLowerCase())
+        );
+      });
+    }
+
+    if (sort && sort === '-dayOfWeek') {
+      docs = docs.sort((a, b) => {
+        return (
+          daysOfWeek.indexOf(b.dayOfWeek.toLowerCase()) -
+          daysOfWeek.indexOf(a.dayOfWeek.toLowerCase())
+        );
+      });
+    }
 
     return docs.map((doc) => {
       const event = new Event(doc);

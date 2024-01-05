@@ -1,4 +1,4 @@
-import DeleteOneEvent from '../../../src/domain/application/usecases/event/DeleteOneEvent.use-case';
+import FindOneEvent from '../../../../src/domain/application/usecases/event/FindOneEvent.use-case';
 
 const eventRepoMock = {
   insert: jest.fn(),
@@ -15,24 +15,31 @@ const singleEventMock = {
   userId: 'id'
 };
 
-const deleteOneEvent = new DeleteOneEvent(eventRepoMock);
+const findOneEvent = new FindOneEvent(eventRepoMock);
 
-describe('DeleteOneEvent usecase', () => {
+describe('FindOneEvent usecase', () => {
   it('Should throw an error if no event is found', async () => {
     eventRepoMock.findById.mockResolvedValueOnce(null);
 
     const eventFound = async () => {
-      await deleteOneEvent.execute(singleEventMock.id);
+      await findOneEvent.execute(singleEventMock.id);
     };
 
     expect(eventFound).rejects.toThrow('Could not find event');
   });
 
-  it('Should delete the event if found', async () => {
+  it('Should return the found event', async () => {
     eventRepoMock.findById.mockResolvedValueOnce(singleEventMock);
 
-    await deleteOneEvent.execute(singleEventMock.id);
+    const event = await findOneEvent.execute(singleEventMock.id);
 
-    expect(eventRepoMock.deleteById).toHaveBeenCalledWith(singleEventMock.id);
+    expect(event).toEqual(
+      expect.objectContaining({
+        id: 'id1',
+        description: 'description',
+        dayOfWeek: 'sunday',
+        userId: 'id'
+      })
+    );
   });
 });

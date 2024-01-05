@@ -1,4 +1,4 @@
-import FindAllEvents from '../../../src/domain/application/usecases/event/FindAllEvents.use-case';
+import FindAllEvents from '../../../../src/domain/application/usecases/event/FindAllEvents.use-case';
 
 const eventRepoMock = {
   insert: jest.fn(),

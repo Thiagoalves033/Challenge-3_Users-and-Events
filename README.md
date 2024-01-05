@@ -119,6 +119,8 @@ npm run test:coverage
 
 **Note:** When running it locally, `<URL>` used in this section means `localhost:<your_port>/api/v1`. If you are using the deployed application, it means `https://users-and-events-api.onrender.com/api/v1`.
 
+Please, refer to [Deployed Swagger-UI](https://users-and-events-api.onrender.com/api-docs/#/) for examples on how the application behaves and expected inputs.
+
 ### `<URL>/user/sign-up`
 
 > Available HTTP methods:

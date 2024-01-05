@@ -70,7 +70,7 @@ export default function ErrorHandler(err: any, req: Request, res: Response, _nex
   }
 
   if (err instanceof CustomAPIError) {
-    return res.status(500).json({
+    return res.status(err.statusCode).json({
       statusCode: err.statusCode,
       msg: err.message,
       error: err.type

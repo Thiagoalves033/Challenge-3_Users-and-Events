@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node ./dist/infrastructure/app.js",
+    "build": "tsc",
+    "start": "npm run start:prod",
     "start:dev": "tsc-watch --onSuccess \"node ./dist/src/app.js\"",
+    "start:prod": "node ./dist/src/app.js",
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage"
   },

@@ -15,6 +15,7 @@
 ## 🔍 Overview
 
 This is a REST API designed to manage events through authorized users.
+The application is deployed at https://users-and-events-api.onrender.com/. Please, refer to [API Endpoints section](#-api-endpoints) to use it correctly.
 
 ## 📚 Prerequisites
 
@@ -116,23 +117,23 @@ npm run test:coverage
 
 ## 🌐 API Endpoints
 
-**Note:** `<URL>` used in this section means `localhost:<your_port>/api/v1`
+**Note:** When running it locally, `<URL>` used in this section means `localhost:<your_port>/api/v1`. If you are using the deployed application, it means `https://users-and-events-api.onrender.com/api/v1`.
 
 ### `<URL>/user/sign-up`
 
-> HTTP methods
+> Available HTTP methods:
 >
 > - POST — Create a new user
 
 ### `<URL>/user/sign-in`
 
-> HTTP methods
+> Available HTTP methods:
 >
 > - POST — Login of an existing user
 
 ### `<URL>/events`
 
-> HTTP methods
+> Available HTTP methods:
 >
 > - POST — Create a new event
 > - GET — Get events
@@ -140,7 +141,16 @@ npm run test:coverage
 
 ### `<URL>/events/:id`
 
-> HTTP methods
+> Available HTTP methods:
 >
 > - GET — Get a single event
 > - DELETE — Delete a single event
+
+**Important:** The event endpoints are _protected_ and require the user to be logged in. Authentication is done through the use of JSON Web Tokens (JWT).
+
+To access these endpoints, you must include a valid JWT in the `Authorization` header of your HTTP request. Usually, the JWT should be prefixed with `Bearer `, but due to the way this API was implemented, it's not obligatory.
+
+The following header examples will work as expected:
+
+1. `Authorization: Bearer your-jwt-token`.
+2. `Authorization: your-jwt-token`.

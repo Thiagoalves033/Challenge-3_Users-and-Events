@@ -50,12 +50,16 @@ export const UserSignUpValidation = Joi.object({
   });
 
 export const UserSignInValidation = Joi.object({
-  email: Joi.string().trim(true).email().messages({
-    'string.email': `The email provided, '{#value}', is not valid.`
+  email: Joi.string().trim(true).email().required().messages({
+    'string.email': `The email provided, '{#value}', is not valid.`,
+    'string.empty': 'The email cannot be empty',
+    'any.required': 'The email is required'
   }),
 
-  password: Joi.string().trim(false).messages({
-    'string.base': `The password provided, '{#value}', is not valid.`
+  password: Joi.string().trim(false).required().messages({
+    'string.base': `The password provided, '{#value}', is not valid.`,
+    'string.empty': 'The password cannot be empty',
+    'any.required': 'The password is required'
   })
 })
   .unknown(false)

@@ -9,7 +9,8 @@
 3. 🔨 [Installation](#-installation)
 4. 🔧 [Configuration](#-configuration)
 5. 🚀 [Build](#-build)
-6. 🌐 [API Endpoints](#-api-endpoints)
+6. ✅ [Tests](#✅-tests)
+7. 🌐 [API Endpoints](#-api-endpoints)
 
 ## 🔍 Overview
 
@@ -24,9 +25,9 @@ This is a REST API designed to manage events through authorized users.
 
 - **MongoDB Atlas**: MongoDB Atlas is a multi-cloud database service by the same people that build MongoDB. You'll need this to manage your database. Follow the steps specified here: https://www.mongodb.com/docs/atlas/getting-started/.
 
-  ```
-  # After creating the database, you will need a connection string, which looks like this:
+  After creating the database, you will need a connection string, which looks like this:
 
+  ```
   mongodb+srv://<username>:<password>@cluster_name.lxa8cyq.mongodb.net/<collection>?retryWrites=true&w=majority
   ```
 
@@ -76,7 +77,7 @@ In order to build the application for development, run the following commands:
 npm build
 
 # Run the app in development mode
-npm start:dev
+npm run start:dev
 ```
 
 In order to build the application for production, run the following commands:
@@ -85,8 +86,32 @@ In order to build the application for production, run the following commands:
 # Build the app
 npm build
 
-# Run the app in development mode
+# Run the app in production mode
 npm start
+```
+
+## ✅ Tests
+
+### 🧪 Unit tests
+
+![Jest Test Count](https://img.shields.io/badge/Tests-46-red)
+
+![Statements Count](<https://img.shields.io/badge/Statements-208/208_covered_(100%)-red>)
+
+![Covered Branches](<https://img.shields.io/badge/Branches-24/24_covered_(100%)-red>)
+
+![Covered Functions](<https://img.shields.io/badge/Functions-44/44_covered_(100%)-red>)
+
+![Covered Lines](<https://img.shields.io/badge/Lines-198/198_covered_(100%)-red>)
+
+### ▶️ Commands
+
+```bash
+# Run unit tests
+npm test
+
+# Run unit tests with coverage
+npm run test:coverage
 ```
 
 ## 🌐 API Endpoints

@@ -17,6 +17,15 @@
           "enum": ["v1"]
         }
       }
+    },
+    {
+      "url": "https://users-and-events-api.onrender.com/api/{version}",
+      "variables": {
+        "version": {
+          "default": "v1",
+          "enum": ["v1"]
+        }
+      }
     }
   ],
   "tags": [

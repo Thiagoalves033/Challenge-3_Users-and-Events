@@ -9,7 +9,7 @@
 3. 🔨 [Installation](#-installation)
 4. 🔧 [Configuration](#-configuration)
 5. 🚀 [Build](#-build)
-6. ✅ [Tests](#✅-tests)
+6. ✅ [Tests](#-tests)
 7. 🌐 [API Endpoints](#-api-endpoints)
 
 ## 🔍 Overview
@@ -96,13 +96,17 @@ npm start
 
 ![Jest Test Count](https://img.shields.io/badge/Tests-46-red)
 
-![Statements Count](<https://img.shields.io/badge/Statements-208/208_covered_(100%)-red>)
+<!-- prettier-ignore -->
+![Statements Count](https://img.shields.io/badge/Statements-208/208_covered_(100%)-red)
 
-![Covered Branches](<https://img.shields.io/badge/Branches-24/24_covered_(100%)-red>)
+<!-- prettier-ignore -->
+![Covered Branches](https://img.shields.io/badge/Branches-24/24_covered_(100%)-red)
 
-![Covered Functions](<https://img.shields.io/badge/Functions-44/44_covered_(100%)-red>)
+<!-- prettier-ignore -->
+![Covered Functions](https://img.shields.io/badge/Functions-44/44_covered_(100%)-red)
 
-![Covered Lines](<https://img.shields.io/badge/Lines-198/198_covered_(100%)-red>)
+<!-- prettier-ignore -->
+![Covered Lines](https://img.shields.io/badge/Lines-198/198_covered_(100%)-red)
 
 ### ▶️ Commands
 
